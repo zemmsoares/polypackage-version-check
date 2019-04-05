@@ -17,19 +17,21 @@ try:
 	result1 = results[0].attrs['data-version']
 	node_latest_version = results[1].attrs['data-version'].strip() 
 
-	output = subprocess.Popen("node -v",
-		                   shell=True,
-		                   stdout=subprocess.PIPE,
-		                   universal_newlines=True).communicate()[0]
+	try:
+		output = subprocess.check_output("node -v",shell=True, stderr=subprocess.STDOUT)
 
-	installed_version = output.strip()
+		installed_version = output.decode("utf-8").strip()
 
-	if node_latest_version == installed_version:
-		print(installed_version +' Latest Version Installed')
-	elif node_latest_version != installed_version:
-		print(installed_version +' New version Available')
-	else:
-		print('Error')
+		if node_latest_version == installed_version:
+			print(installed_version +' Latest')
+		elif node_latest_version != installed_version:
+			print(installed_version +' Outdated')
+		else:
+			print('Error')
+
+	except subprocess.CalledProcessError:
+		print("Node not found")
+
 
 except requests.exceptions.RequestException as e:
     print ('Something went wrong!')
