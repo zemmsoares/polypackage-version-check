@@ -1,7 +1,7 @@
-# polybar-node-version
-![Polybar-node-version Last Version](https://i.imgur.com/tV5dzEI.png)
-![Polybar-node-version Outdated](https://i.imgur.com/NgMs5x1.png)
-![Polybar-node-version Node not found](https://i.imgur.com/FPpVvql.png)
+# polypackage-version-check
+![polypackage-version-check Last Version](https://i.imgur.com/tV5dzEI.png)
+![polypackage-version-check Outdated](https://i.imgur.com/NgMs5x1.png)
+![polypackage-version-check Node not found](https://i.imgur.com/FPpVvql.png)
 
 
 Polybar python script to scrap latest node version from website and compare it to the installed.
